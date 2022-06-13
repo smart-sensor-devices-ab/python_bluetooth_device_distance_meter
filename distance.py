@@ -45,7 +45,7 @@ time.sleep(0.1)
 print("Looking for nearby Bluetooth devices ...")
 dongle_output2 = console.read(console.in_waiting)
 time.sleep(3)
-print("Scan Complete!")
+
 filtered = []
 # Filter out unncecssary outputs and keep only the list of devices (also remove index)
 for dev in dongle_output2.decode().splitlines():
@@ -62,6 +62,7 @@ for elem in filtered:
 
 # sort list by closest device
 out.sort(key=lambda x:int(x.split()[3]),reverse=True)
+print("Scan Completed! "+ str(len(out)) +" devices found.")
 
 # print(out)
 for i in range(0, len(out)):
